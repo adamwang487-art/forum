@@ -1,34 +1,5 @@
 # SQLite – Forum
-## Travail à faire
 
-### Théo — Front-end
-
-**`index.html`**
-→ Page d'accueil
-
-**`register.html`**
-→ 3 champs à remplir dans cet ordre :
-
-1. Gmail
-2. Name
-3. Mot de passe
-
-→ Un bouton **Retour** (ou **X**) pour revenir à la page d'accueil.
-→ Un bouton pour valider la connexion.
-
-**`login.html`**
-→ 2 champs à remplir dans cet ordre :
-
-1. Gmail
-2. Mot de passe
-
-→ Un bouton **Retour** (ou **X**) pour revenir à la page d'accueil.
-→ Un bouton pour valider la connexion.
-
-idée :
-page avec pub sur le cote
-2eme page acceuil sans bouton login et register mais bouton profil et avec possibiliter de like ou commenter 
-bouger le bouton aime , commotaire, 
 ## Installation
 
 Installer SQLite pour Go :
