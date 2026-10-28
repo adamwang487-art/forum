@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner">
+        <h1>Bienvenue sur le forum</h1>
+        <p>Un espace pour échanger, partager et discuter.</p>
+    </section>
+
+
+    <!-- ============================== -->
+    <!-- FORMULAIRE De connexion     -->
+    <!-- ============================== -->
+
+    <main class="login-wrapper">
+
+        <div class="login-card">
+
+            <h2>Connection</h2>
+
+            <form action="/login" method="POST">
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
+                </div>>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="login-button">Se connecté</button>
+
+            </form>
+
+            <a href="/" class="login-link">Retour à l'accueil</a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

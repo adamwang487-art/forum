@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Créer une publication</title>
+    <link rel="stylesheet" href="/static/create-post.css">
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="/">FORUM</a>
+    </header>
+
+    <main>
+        <h1>Créer une publication</h1>
+
+        <div class="layout">
+
+            <!-- Colonne gauche : titre + contenu -->
+            <form id="form-post" action="/create-post" method="POST">
+
+                <div class="field">
+                    <label for="titre">Titre</label>
+                    <input
+                        type="text"
+                        id="titre"
+                        name="titre"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="contenu">Contenu</label>
+                    <textarea
+                        id="contenu"
+                        name="contenu"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit">Publier</button>
+
+            </form>
+
+            <!-- Colonne droite : catégories (hors du <form>) -->
+            <aside class="categories">
+                <h2>Catégories</h2>
+
+                {{range .}}
+                <label>
+                    <input
+                        type="checkbox"
+                        name="categories"
+                        value="{{.ID}}"
+                        form="form-post"
+                    >
+                    {{.Nom}}
+                </label>
+                {{end}}
+            </aside>
+
+        </div>
+    </main>
+
+</body>
+</html>

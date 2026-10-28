@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/avatar.css">
+    <script src="/static/avatar.js" defer></script>
+    <link rel="stylesheet" href="/static/profil-background.css">
+</head>
+<body class="character-profile" data-background="{{fondAvatar .Avatar}}" style="--character-background: url('{{fondAvatar .Avatar}}');">
+    <header class="navbar">
+
+        <a href="/" class="logo">FORUM</a>
+
+    </header>
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner-Profil">
+        <h1>Ton Profil</h1>
+    </section>
+
+
+    <section class="profile-card">
+
+        <form action="/profil/avatar" method="POST">
+
+            <label>
+                Avatar
+            </label>
+
+            <div class="avatar-recherche">
+                <input
+                    type="text"
+                    id="rechercheAvatar"
+                    placeholder="Rechercher un personnage..."
+                >
+            </div>
+
+            <noscript>
+                <button type="submit" class="button button-primary">
+                    Enregistrer
+                </button>
+            </noscript>
+
+            <div class="avatar-liste">
+
+                {{range .Avatars}}
+                    <div class="avatar-choix" data-nom="{{.}}" data-background="{{fondAvatar .}}">
+
+                        <input
+                        type="radio"
+                        name="avatar"
+                        value="{{.}}"
+                        id="avatar-{{.}}"
+                        {{if eq . $.Avatar}}checked{{end}}
+                    >
+
+                    <label for="avatar-{{.}}">
+                        <img
+                            src="/static/avatar/{{.}}.png"
+                            alt="{{.}}"
+                        >
+                    </label>
+
+                    </div>
+
+                {{end}}
+
+            </div>
+
+    </form>
+
+    <a href="/profil" class="button">
+        Annuler
+    </a>
+
+</section>
+</body>

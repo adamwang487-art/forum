@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Nom}} - Recherche de groupe</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/groupes/groupes.css">
+</head>
+<body>
+    {{template "header" .}}
+    <section class="banner"><h1>{{.Nom}}</h1><p>{{.Description}}</p></section>
+    <main class="forum-layout">
+        {{template "espaces" .}}
+        <section class="posts-column group-content">
+            <a href="/">← Retour au forum</a>
+            <h2>Rechercher des joueurs</h2>
+            {{if .Connecte}}
+            <form method="post" class="group-form">
+                <label for="riot-id">Riot ID (pseudo#tag)</label>
+                <input id="riot-id" name="riot_id" maxlength="80" required placeholder="VotrePseudo#EUW">
+                <label for="message">Votre annonce</label>
+                <textarea id="message" name="message" rows="4" maxlength="1000" required placeholder="Précisez votre serveur, rang, rôle et disponibilités pour trouver vos coéquipiers."></textarea>
+                <button type="submit">Publier mon annonce {{.Nom}}</button>
+            </form>
+            {{else}}
+            <p><a href="/login">Connectez-vous</a> pour publier votre recherche de groupe.</p>
+            {{end}}
+            <h2>Annonces {{.Nom}}</h2>
+            <p>Ajoutez le Riot ID en jeu pour contacter un joueur.</p>
+            {{range .Annonces}}
+            <article class="group-ad">
+                <h3>{{.RiotID}}</h3>
+                <p class="group-message">{{.Message}}</p>
+                <small>Publié par {{.Auteur}} · {{.Date}}</small>
+            </article>
+            {{else}}
+            <p>Aucune annonce pour le moment. Lancez votre recherche !</p>
+            {{end}}
+        </section>
+        <aside class="other-zone"><img class="scores-matchs-image" src="/scores-et-matchs/matchscore.png" alt="Scores et matchs à venir"></aside>
+    </main>
+    {{template "footer" .}}
+</body>
+</html>

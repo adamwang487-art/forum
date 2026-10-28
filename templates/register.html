@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/register.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner">
+        <h1>Bienvenue sur le forum</h1>
+        <p>Un espace pour échanger, partager et discuter.</p>
+    </section>
+
+
+    <!-- ============================== -->
+    <!-- FORMULAIRE D'INSCRIPTION       -->
+    <!-- ============================== -->
+
+    <main class="register-wrapper">
+
+        <div class="register-card">
+
+            <h2>Inscription</h2>
+
+            <form action="/register" method="POST">
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="register-button">S'inscrire</button>
+
+            </form>
+
+            <a href="/" class="register-link">Retour à l'accueil</a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

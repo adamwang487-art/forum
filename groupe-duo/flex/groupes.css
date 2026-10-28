@@ -1,0 +1,31 @@
+.group-content { padding: 22px; }
+.group-content > a, .group-content p a { color: #423018; }
+.group-form { display: grid; gap: 10px; margin-bottom: 28px; }
+.group-form input, .group-form textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    font: inherit;
+    border: 1px solid #80612d;
+    border-radius: 4px;
+    background: #fff8e9;
+}
+.group-form textarea { resize: vertical; }
+.group-form button {
+    padding: 12px;
+    background: #18313e;
+    color: #e8d29a;
+    border: 1px solid #80612d;
+    cursor: pointer;
+    font: inherit;
+}
+.group-ad {
+    padding: 16px;
+    margin: 14px 0;
+    background: #f5ead8;
+    border: 1px solid #80612d;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
+.group-ad h3 { margin-top: 0; }
+.group-message { white-space: pre-wrap; }

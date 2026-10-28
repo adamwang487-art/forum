@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion impossible — Forum</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner">
+        <h1>Connexion impossible</h1>
+        <p>Retrouvez votre compte et rejoignez la discussion.</p>
+    </section>
+
+
+    <!-- ============================== -->
+    <!-- FORMULAIRE De connexion     -->
+    <!-- ============================== -->
+
+    <main class="login-wrapper">
+
+        <div class="login-card">
+
+            <h2>Réessayer la connexion</h2>
+
+            <div class="login-error" role="alert">
+                <p class="login-error-title"><!--LOGIN_MESSAGE--></p>
+                <p>Vérifiez vos identifiants et réessayez.</p>
+                <p>Vous n’avez pas encore de compte ? Inscrivez-vous pour rejoindre le forum.</p>
+            </div>
+
+            <form action="/login" method="POST">
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="exemple@gmail.com" value="" autocomplete="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+                </div>
+
+                <button type="submit" class="login-button">Réessayer</button>
+
+            </form>
+
+            <a href="/register" class="login-link login-register-link">Pas encore de compte ? S’inscrire</a>
+
+            <a href="/" class="login-link">Retour à l'accueil</a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

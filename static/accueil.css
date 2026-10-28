@@ -1,0 +1,326 @@
+/* ================================================== */
+/* PUBLICATION                                        */
+/* ================================================== */
+
+.post-card {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    padding: 18px 20px;
+    margin-bottom: 15px;
+
+    box-sizing: border-box;
+
+    background: #f5ead8;
+
+    border: 1px solid #d8c5a9;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    gap: 15px;
+}
+
+
+/* ================================================== */
+/* AVATAR                                             */
+/* ================================================== */
+
+.post-user {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.post-user .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #c8a878;
+    color: #241b10;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* ================================================== */
+/* INFORMATIONS                                       */
+/* ================================================== */
+
+.post-information {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+/* ================================================== */
+/* TITRE                                              */
+/* ================================================== */
+
+.post-title {
+    display: block;
+
+    margin: 0;
+
+    color: #241b10;
+
+    font-size: 19px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-title:hover {
+    color: #80613c;
+    text-decoration: underline;
+}
+
+
+/* ================================================== */
+/* AUTEUR + DATE                                      */
+/* ================================================== */
+
+.post-details {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 3px;
+}
+
+
+/* ================================================== */
+/* AUTEUR                                             */
+/* ================================================== */
+
+.post-author {
+    margin: 0;
+
+    color: #80613c;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ================================================== */
+/* SEPARATEUR                                         */
+/* ================================================== */
+
+.post-separator {
+    color: #806f5b;
+
+    font-size: 13px;
+}
+
+
+/* ================================================== */
+/* DATE                                               */
+/* ================================================== */
+
+.post-meta {
+    margin: 0;
+
+    color: #806f5b;
+
+    font-size: 12px;
+}
+
+
+/* ================================================== */
+/* COMPTEURS                                          */
+/* ================================================== */
+
+.post-counters {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-shrink: 0;
+
+    color: #806f5b;
+
+    font-size: 14px;
+}
+
+.counter {
+    white-space: nowrap;
+}
+
+.comments-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.comments-link:hover,
+.comments-link:focus-visible {
+    color: #514124;
+    text-decoration: underline;
+}
+
+.vote-button {
+    /* Le bouton reprend l'apparence du compteur, tout en restant cliquable. */
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.vote-button:hover {
+    /* Retour visuel au survol pour signaler qu'il s'agit d'une action. */
+    color: #514124;
+}
+
+
+/* ================================================== */
+/* AUCUNE PUBLICATION                                 */
+/* ================================================== */
+
+.empty-post {
+    justify-content: center;
+
+    color: #806f5b;
+}
+
+
+/* ================================================== */
+/* RESPONSIVE                                         */
+/* ================================================== */
+
+@media (max-width: 700px) {
+
+    .post-card {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .post-user .avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .post-counters {
+        gap: 8px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .post-title {
+        font-size: 17px;
+    }
+
+    .post-author {
+        font-size: 13px;
+    }
+
+    .post-counters {
+        gap: 5px;
+    }
+
+}
+
+/* Accueil inspiré de la référence tom/forum.png. */
+.forum-home {
+    min-height: 100vh;
+    background: #020c13 url('/static/images/backgroundshurima.webp') center top / cover no-repeat fixed;
+    color: #e6d7b0;
+}
+.forum-home .banner {
+    position: relative;
+    width: calc(100% - 16px);
+    min-height: 0;
+    height: clamp(180px, 24vw, 360px);
+    margin: 3px auto 0;
+    padding: 20px 16px 13px;
+    justify-content: flex-end;
+    background: linear-gradient(0deg, #02121bf5, #07121b22 60%, #0000000d), url('/static/images/nouvellebaniere.png') center center / cover no-repeat #02121b;
+    border: 1px solid #ad8743;
+    outline: 1px solid #344546;
+    outline-offset: -5px;
+    box-shadow: inset 0 0 18px #000, 0 3px 10px #0008;
+}
+.forum-home .banner-brand { color: #f5cc79; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; text-shadow: 0 2px 4px #000; }
+.forum-home .banner h1 { margin: 0; color: #ebc77e; font-size: 36px; line-height: 1; letter-spacing: 7px; }
+.forum-home .banner h1::after { content: '──── ◇ ────'; display: block; margin: 3px 0 5px; color: #bd934a; font-size: 12px; letter-spacing: 2px; }
+.forum-home .banner p:not(.banner-brand) { color: #f4e9d0; font-size: 10px; line-height: 1.3; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 1px 4px #000; }
+.forum-home .forum-layout { width: calc(100% - 16px); max-width: 1600px; grid-template-columns: minmax(185px, 23fr) minmax(0, 51fr) minmax(180px, 20fr); gap: 8px; margin: 6px auto 12px; align-items: stretch; }
+.forum-home .discussion-zone, .forum-home .other-zone {
+    position: relative;
+    padding: 12px 10px;
+    border: 3px double #a58243;
+    background: radial-gradient(ellipse at top right, #12344055, transparent 65%), #02121b;
+    box-shadow: inset 0 0 0 2px #03121b, inset 0 0 0 3px #43504a, 0 3px 9px #000a;
+}
+.forum-home .discussion-zone { height: auto; min-height: 420px; }
+.forum-home .discussion-zone h2 { font-size: 13px; color: #efc66b; margin: 0 -5px 8px; padding: 0 7px 12px; }
+.forum-home .discussion-zone h2::before { content: '◈'; color: #159ec0; margin-right: 9px; }
+.forum-home .discussion-zone a { padding: 18px 9px; font-family: Georgia, serif; border-bottom: 1px solid #334341; }
+.forum-home .discussion-zone a strong { font-size: 15px; color: #e9e4d6; font-weight: normal; }
+.forum-home .discussion-zone a span { color: #aeb8b7; }
+.forum-home .other-zone { padding: 3px; }
+.forum-home .scores-matchs-image { border: 0; border-radius: 0; }
+.forum-home .posts-column {
+    padding: 0 12px 8px;
+    border: 3px double #926c32;
+    background: repeating-linear-gradient(3deg, #74552205 0 1px, transparent 1px 4px), radial-gradient(ellipse at 40% 20%, #f4dfaa, transparent 75%), linear-gradient(90deg, #c7a369, #ead19a 6%, #e7cd94 92%, #bd955b);
+    box-shadow: inset 0 0 0 2px #e8cb8c, inset 0 0 22px #83521780, 0 3px 10px #000a;
+}
+.forum-home .section-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; min-height: 51px; padding: 8px 0; border-bottom: 1px solid #9f7b3f; }
+.forum-home .eyebrow { display: none; }
+.forum-home .section-header h2 { margin: 0; font-size: 13px; color: #292010; text-transform: uppercase; }
+.forum-home .button-secondary { padding: 9px 12px; background: linear-gradient(#10354a, #03121b); border: 3px double #91723b; border-radius: 3px; color: #f5ce78; font: 11px Arial, sans-serif; text-transform: uppercase; text-decoration: none; box-shadow: inset 0 0 5px #000; }
+.forum-home .button-secondary:hover { background: #164157; }
+.forum-home .post-card { min-height: 85px; gap: 10px; margin: 0; padding: 15px 4px; background: transparent; border: 0; border-bottom: 1px solid #b6975b88; border-radius: 0; box-shadow: 0 1px 0 #ffedbf66; }
+.forum-home .post-user { flex: 1; min-width: 0; gap: 14px; }
+.forum-home .post-user .profile-avatar { width: 45px; height: 45px; flex: 0 0 45px; border: 2px solid #7d5d2b; border-radius: 3px; box-shadow: 0 1px 3px #0006; }
+.forum-home .post-information { flex: 1; }
+.forum-home .post-title { font-size: 15px; font-weight: normal; color: #201707; white-space: normal; overflow-wrap: anywhere; }
+.forum-home .post-details { flex-wrap: wrap; gap: 4px 7px; line-height: 1.5; }
+.forum-home .post-author { color: #174363; font-size: 12px; font-weight: normal; }
+.forum-home .post-meta { color: #66573b; font-size: 11px; }
+.forum-home .post-counters { gap: 9px; font-size: 11px; color: #5b594c; }
+.forum-home .post-counters form { margin: 0; }
+.forum-home .empty-post { color: #645133; font-size: 14px; }
+@media (min-width: 1600px) { .forum-home .banner { max-width: 1600px; } }
+@media (max-width: 1000px) {
+    .forum-home .forum-layout { grid-template-columns: 180px minmax(0, 1fr) 185px; }
+    .forum-home .post-card { flex-wrap: wrap; }
+    .forum-home .post-counters { margin-left: 59px; }
+}
+@media (max-width: 800px) {
+    .forum-home .forum-layout { grid-template-columns: minmax(0, 1fr) 200px; }
+    .forum-home .discussion-zone { grid-column: 1 / -1; min-height: 0; }
+    .forum-home .discussion-zone a { display: inline-block; vertical-align: top; width: calc(50% - 3px); padding: 10px; }
+    .forum-home .posts-column { order: initial; }
+}
+@media (max-width: 560px) {
+    .forum-home .forum-layout { grid-template-columns: minmax(0, 1fr); }
+    .forum-home .banner {
+        background-size: 100% 100%, 100% auto;
+    }
+    .forum-home .banner h1 { font-size: 32px; }
+    .forum-home .other-zone { width: min(100%, 320px); justify-self: center; }
+    .forum-home .section-header h2 { font-size: 12px; }
+    .forum-home .button-secondary { padding: 8px; font-size: 10px; }
+}

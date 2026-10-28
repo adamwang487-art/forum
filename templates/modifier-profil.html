@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/Profil.css">
+</head>
+<body>
+    <header class="navbar">
+
+        <a href="/" class="logo">FORUM</a>
+
+    </header>
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner-Profil">
+        <h1>Ton Profil</h1>
+    </section>
+
+
+    <section class="profile-card">
+
+        <h1>Modifier mon profil</h1>
+
+        <form action="/profil/modifier" method="POST">
+
+            <label>
+                Nom
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                value="{{.NomClient}}"
+                required
+            >
+
+            <label>
+                Gmail
+            </label>
+
+            <input
+                type="email"
+                name="gmail"
+                value="{{.Gmail}}"
+                required
+            >
+
+            <label>
+            Nouveau mot de passe
+            </label>
+
+            <input
+                type="password"
+                name="motdepasse"
+                placeholder="Laisser vide pour ne pas changer"
+            >
+
+        </div>
+
+        <button type="submit" class="button button-primary">
+            Enregistrer
+        </button>
+
+    </form>
+
+    <a href="/profil" class="button">
+        Annuler
+    </a>
+
+</section>
+</body>

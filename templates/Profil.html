@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/Profil.css">
+    <link rel="stylesheet" href="/static/profil-background.css">
+</head>
+<body class="character-profile" data-background="{{fondAvatar .Avatar}}" style="--character-background: url('{{fondAvatar .Avatar}}');">
+    <header class="navbar">
+
+        <a href="/" class="logo">FORUM</a>
+
+    </header>
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner-Profil">
+        <h1>Ton Profil</h1>
+    </section>
+
+    <main class="profile-container">
+
+        <section class="profile-card">
+
+            <a href="/profil/avatar" class="profile-avatar-link">
+
+                <div class="profile-avatar">
+
+                    <img
+                        src="/static/avatar/{{.Avatar}}.png"
+                        alt="Avatar"
+                    > 
+
+                </div>
+
+            </a>
+
+            <h1>{{.NomClient}}</h1>
+
+            <p>
+                Gmail : {{.Gmail}}
+            </p>
+
+            <a href="/profil/modifier" class="button button-primary">
+                Modifier le profil
+            </a>
+
+            <a href="/logout" class="button button-primary">
+                Se déconnecter
+            </a>
+
+        </section>
+
+        <section class="profile-activity">
+
+            <h2>Mon activité</h2>
+
+            <h3>Mes publications</h3>
+
+            {{range .Publications}}
+
+            <article class="post-card">
+
+                <div class="post-user">
+
+                    <div class="profile-avatar">
+                        <img
+                            src="/static/avatar/{{.Avatar}}.png"
+                            alt="Avatar"
+                        >
+                    </div>
+
+                    <div class="post-information">
+
+                        <a
+                            href="/publication?id={{.ID}}"
+                            class="post-title">
+
+                            {{.Titre}}
+
+                        </a>
+
+                        <div class="post-details">
+
+                            <p class="post-author">
+                                {{.NomClient}}
+                            </p>
+
+                            <p class="post-meta">
+                                {{.Date}}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="post-counters">
+
+                    <span class="counter">
+                        ♡ {{.NombreLikes}}
+                    </span>
+
+                    <span class="counter">
+                        ♡ {{.NombreDislikes}}
+                    </span>
+
+                    <span class="counter">
+                        💬 {{.NombreCommentaires}}
+                    </span>
+
+                </div>
+
+            </article>
+
+            {{else}}
+
+            <p>
+                Aucune publication.
+            </p>
+
+            {{end}}
+
+            <h3>Mes commentaires</h3>
+
+            {{range .Commentaires}}
+            <a href="/publication?id={{.PublicationID}}" class="comment-link">
+                <div class="comment">
+
+                    <!-- AVATAR -->
+
+                    <div class="profile-avatar">
+                        <img
+                            src="/static/avatar/{{.Avatar}}.png"
+                            alt="Avatar"
+                        >
+                    </div>
+
+
+                    <!-- CONTENU -->
+
+                    <div class="comment-body">
+
+                        <strong>
+                            {{.NomClient}}
+                        </strong>
+
+                        <p>
+                            {{.Contenu}}
+                        </p>
+
+                        <span class="comment-date">
+                            {{.Date}}
+                        </span>
+
+                    </div>
+
+                </div>
+            </a>
+            {{else}}
+
+                <p class="no-comments">
+                    Aucun commentaire pour le moment.
+                </p>
+
+            {{end}}
+
+        </section>
+    </main>
+</body>
+</html>

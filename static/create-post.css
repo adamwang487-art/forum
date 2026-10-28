@@ -1,0 +1,216 @@
+:root {
+    --bg: #111b22;
+    --bg-header: #07141b;
+    --gold: #e4c46e;
+    --gold-soft: #9a7836;
+    --gold-border: #c9a34e;
+    --cream: #d6bc80;
+    --cream-border: #80612d;
+    --input-bg: #e4e4e4f4;
+    --input-border: #80652f;
+    --input-text: #ffffff;
+    --ink: #241b10;
+    --ink-soft: #5c4a2e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: #d9c79a;
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+    background-image: url("background/aram\ blossom.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ---------- HEADER (barre en haut, pleine largeur) ---------- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 65px;
+    padding: 8px 25px;
+    background: #07141b;
+    border-bottom: 2px solid #b3862b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), inset 0 -1px 0 #283e4a;
+    color: #e7d29a;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px #000;
+}
+
+header a {
+    color: #e3c978;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+header a:hover {
+    color: #fff0b5;
+    text-decoration: underline;
+}
+
+/* ---------- MAIN : titre centré + 2 colonnes ---------- */
+main {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    margin-bottom: 100px;
+    color: var(--gold);
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Conteneur des deux colonnes : gauche = formulaire, droite = catégories */
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+/* ---------- COLONNE GAUCHE : formulaire (titre + contenu) ---------- */
+form,
+.categories {
+    background: #08161d;
+    color: #101d24;
+    border-radius: 0;
+    padding: 28px 30px;
+    border: 2px solid var(--cream-border);
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: var(--input-bg);
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
+    background: #101d24;
+    color: var(--input-text);
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: #8e8b82;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #c29b45;
+    box-shadow: 0 0 5px rgba(194, 155, 69, 0.35);
+}
+
+textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.field {
+    margin-bottom: 22px;
+}
+
+/* ---------- COLONNE DROITE : catégories ---------- */
+h2 {
+    font-size: 1.1rem;
+    color: var(--input-bg);
+    border-bottom: 1px solid var(--cream-border);
+    padding-bottom: 6px;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.categories {
+    min-height: 320px;
+}
+
+/* Liste verticale des catégories */
+.categories label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    margin: 0 0 12px;
+    cursor: pointer;
+    color: var(--input-bg);
+}
+
+.categories input {
+    accent-color: var(--gold-soft);
+}
+
+/* ---------- BOUTON ---------- */
+button[type="submit"] {
+    margin: 12px 0 0 auto;
+    display: block;
+    background: #0b3045;
+    color: #e8c66a;
+    border: 2px solid var(--gold-border);
+    border-radius: 25px;
+    padding: 10px 26px;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #124b68;
+    color: #fff;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    color: #e3c978;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #fff0b5;
+    text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE : une seule colonne sur petit écran ---------- */
+@media (max-width: 800px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 18px 20px;
+    }
+}

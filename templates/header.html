@@ -1,0 +1,54 @@
+{{define "header"}}
+
+<header class="navbar">
+
+    <a href="/" class="logo" aria-label="League of Legends — Accueil du forum"><span>League<span class="logo-of"> of</span></span><span>Legends</span></a>
+
+    <div class="search-box">
+        <input type="text" placeholder="Rechercher...">
+    </div>
+
+    {{if .Connecte}}
+
+    <nav class="nav-links">
+
+        <a href="/profil" class="nav-button">
+            {{.NomClient}}
+        </a>
+
+        <div class="profile-avatar">
+            <img
+                src="/static/avatar/{{.Avatar}}.png"
+                alt="Avatar"
+            >
+        </div>
+
+    </nav>
+
+    {{else}}
+
+    <nav class="nav-links">
+
+        <a href="/login">
+            Connexion
+        </a>
+
+        <a href="/register" class="nav-button">
+            Inscription
+        </a>
+
+    </nav>
+
+    {{end}}
+
+    <a
+        href="https://www.leagueoflegends.com/fr-fr/"
+        class="button-jouer"
+        target="_blank"
+    >
+        Jouer
+    </a>
+
+</header>
+
+{{end}}

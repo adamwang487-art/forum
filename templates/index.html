@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forum - Accueil</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/accueil.css">
+</head>
+
+<body class="forum-home">
+
+    <!-- ============================== -->
+    <!-- BARRE DU HAUT                  -->
+    <!-- ============================== -->
+
+    {{template "header" .}}
+
+
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner">
+
+        <p class="banner-brand">League of Legends</p>
+        <h1>Forum</h1>
+
+        <p>
+            Discutez · Partagez · Progressez<br>sur la faille
+        </p>
+
+    </section>
+
+
+    <!-- ============================== -->
+    <!-- CONTENU PRINCIPAL              -->
+    <!-- ============================== -->
+
+    <main class="forum-layout">
+
+
+        <!-- ============================== -->
+        <!-- ZONE DISCUSSION                 -->
+        <!-- ============================== -->
+
+        {{template "espaces" .}}
+
+
+        <!-- ============================== -->
+        <!-- PUBLICATIONS                    -->
+        <!-- ============================== -->
+
+        <section class="posts-column">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        Discussion
+                    </p>
+
+                    <h2>
+                        Discussions récentes
+                    </h2>
+
+                </div>
+
+                <a
+                    href="/create-post"
+                    class="button button-secondary">
+
+                    + Nouveau sujet
+
+                </a>
+
+            </div>
+
+
+            <!-- ============================== -->
+            <!-- PUBLICATIONS                    -->
+            <!-- ============================== -->
+
+            {{range .Publications}}
+
+            <article class="post-card">
+
+                <!-- ============================== -->
+                <!-- AUTEUR                         -->
+                <!-- ============================== -->
+
+                <div class="post-user">
+
+
+                    <!-- AVATAR -->
+
+                    <div class="profile-avatar">
+                        <img
+                            src="/static/avatar/{{.Avatar}}.png"
+                            alt="Avatar"
+                        >
+                    </div>
+
+
+                    <!-- INFORMATIONS -->
+
+                    <div class="post-information">
+
+                        <a
+                            href="/publication?id={{.ID}}"
+                            class="post-title">
+
+                            {{.Titre}}
+
+                        </a>
+
+                        <div class="post-details">
+
+                            <p class="post-author">
+                            {{.NomClient}}
+                            </p>
+
+                            <p class="post-meta">
+                                {{.Date}}
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ============================== -->
+                <!-- COMPTEURS                      -->
+                <!-- ============================== -->
+
+                <div class="post-counters">
+
+                    <!-- Chaque formulaire envoie le type de vote et l'ID de la publication. -->
+                    <form action="/vote" method="post">
+                        <input type="hidden" name="retour" value="accueil">
+                        <input type="hidden" name="publication_id" value="{{.ID}}">
+                        <input type="hidden" name="valeur" value="1">
+                        <button type="submit" class="counter vote-button">
+                            <!-- Le coeur plein indique que l'utilisateur a déjà liké. -->
+                            {{if eq .VoteUtilisateur 1}}♥{{else}}♡{{end}}
+                            {{.NombreLikes}}
+                        </button>
+                    </form>
+
+                    <form action="/vote" method="post">
+                        <input type="hidden" name="retour" value="accueil">
+                        <input type="hidden" name="publication_id" value="{{.ID}}">
+                        <input type="hidden" name="valeur" value="-1">
+                        <button type="submit" class="counter vote-button">
+                            <!-- L'icône change lorsque le dislike est le vote actif. -->
+                            {{if eq .VoteUtilisateur -1}}👎{{else}}👎🏻{{end}}
+                            {{.NombreDislikes}}
+                        </button>
+                    </form>
+
+
+                    <a href="/publication?id={{.ID}}#commentaires"
+                       class="counter comments-link"
+                       aria-label="Voir les commentaires de {{.Titre}}">
+                        💬 {{.NombreCommentaires}}
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            {{else}}
+
+            <!-- ============================== -->
+            <!-- AUCUNE PUBLICATION              -->
+            <!-- ============================== -->
+
+            <article class="post-card empty-post">
+
+                <p>
+                    Aucune publication pour le moment.
+                </p>
+
+            </article>
+
+            {{end}}
+
+        </section>
+
+
+        <!-- ============================== -->
+        <!-- TROISIÈME ZONE                 -->
+        <!-- ============================== -->
+
+        <aside class="other-zone">
+
+            <img class="scores-matchs-image" src="/scores-et-matchs/matchscore.png" alt="Scores et matchs à venir">
+
+        </aside>
+
+    </main>
+
+
+    <!-- ============================== -->
+    <!-- FOOTER                         -->
+    <!-- ============================== -->
+
+    {{template "footer" .}}
+
+</body>
+
+</html>

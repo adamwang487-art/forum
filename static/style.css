@@ -1,0 +1,577 @@
+/* ================================================= */
+/* GÉNÉRAL                                           */
+/* ================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #111b22;
+
+    color: #241b10;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* ================================================= */
+/* BARRE DU HAUT                                     */
+/* ================================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 8px 25px;
+
+    background: #07141b;
+
+    border-bottom: 2px solid #9a7836;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.6),
+        inset 0 -1px 0 #283e4a;
+
+    color: #e7d29a;
+}
+
+
+/* ================================================= */
+/* LOGO                                              */
+/* ================================================= */
+
+.logo {
+    color: #e4c46e;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 1px 2px #000;
+}
+
+.logo:hover {
+    color: #f2d98b;
+    text-decoration: underline;
+}
+
+
+/* ================================================= */
+/* RECHERCHE                                         */
+/* ================================================= */
+
+.search-box {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 0 30px;
+}
+
+.search-box input {
+    width: 350px;
+    height: 38px;
+
+    padding: 8px 13px;
+
+    background: #101d24;
+
+    border: 1px solid #80652f;
+
+    border-radius: 3px;
+
+    color: #e6d6ad;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.search-box input::placeholder {
+    color: #8e8b82;
+}
+
+.search-box input:focus {
+    border-color: #c29b45;
+
+    box-shadow:
+        0 0 5px rgba(194, 155, 69, 0.35);
+}
+
+/* bouton Jouer */
+
+.button-jouer {
+    display: inline-block;
+    padding: 8px 27px;
+
+    margin-left: 10px;
+
+    background: #0b3045;
+    border: 3px solid #c9a34e;
+    border-radius: 25px;
+
+    color: #e8c66a;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.button-jouer:hover {
+    background: #124b68;
+    color: white;
+}
+
+/* avatar */
+
+.avatarbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #c8a878;
+    color: #241b10;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ================================================= */
+/* LIENS NAVIGATION                                  */
+/* ================================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.nav-links a {
+    padding: 8px 14px;
+
+    color: #e3c978;
+
+    border: 1px solid #81652f;
+
+    background: #18252c;
+
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    background: #2a3941;
+
+    border-color: #c59d4d;
+
+    color: #fff0b5;
+}
+
+
+/* ================================================= */
+/* BANNIÈRE                                          */
+/* ================================================= */
+
+.banner {
+    width: 100%;
+
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    background:
+        linear-gradient(
+            rgba(9, 21, 27, 0.25),
+            rgba(9, 21, 27, 0.45)
+        ),
+        #18313e;
+
+    border-bottom: 3px solid #8c6b30;
+
+    color: #e8d29a;
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.45),
+        0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.banner h1 {
+    margin: 0 0 8px 0;
+
+    color: #e6c66d;
+
+    font-size: 32px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        2px 2px 3px #000;
+}
+
+.banner p {
+    margin: 0;
+
+    color: #cdbd91;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================================================= */
+/* CONTENU PRINCIPAL                                 */
+/* ================================================= */
+
+.forum-layout {
+    display: grid;
+
+    grid-template-columns:
+        220px
+        minmax(0, 700px)
+        220px;
+
+    gap: 12px;
+
+    width: 94%;
+    max-width: 1250px;
+
+    margin: 15px auto 40px;
+}
+
+
+/* ================================================= */
+/* ZONE DISCUSSION                                   */
+/* ================================================= */
+
+.discussion-zone {
+    height: fit-content;
+
+    padding: 14px;
+
+    background: #08161d;
+
+    border: 1px solid #8c6b30;
+
+    box-shadow:
+        inset 0 0 0 1px #243943,
+        0 3px 8px rgba(0, 0, 0, 0.45);
+
+    color: #d9c79a;
+}
+
+.discussion-zone h2 {
+    margin: 0 0 12px 0;
+
+    padding-bottom: 10px;
+
+    color: #e2c56e;
+
+    font-size: 15px;
+
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #70572b;
+}
+
+.discussion-zone a {
+    display: block;
+
+    padding: 9px 5px;
+
+    color: #c9c0aa;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #27363d;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 12px;
+
+    transition: 0.15s;
+}
+
+.discussion-zone a:hover {
+    padding-left: 9px;
+
+    color: #e6ca78;
+
+    background: #12242c;
+}
+
+
+/* ================================================= */
+/* COLONNE PUBLICATIONS                              */
+/* ================================================= */
+
+.posts-column {
+    min-width: 0;
+
+    background: #d6bc80;
+
+    border: 1px solid #80612d;
+
+    box-shadow:
+        inset 0 0 0 2px #e0c990,
+        0 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ================================================= */
+/* TROISIÈME ZONE                                    */
+/* ================================================= */
+
+.other-zone {
+    height: fit-content;
+
+    padding: 14px;
+
+    background: #08161d;
+
+    border: 1px solid #8c6b30;
+
+    box-shadow:
+        inset 0 0 0 1px #243943,
+        0 3px 8px rgba(0, 0, 0, 0.45);
+
+    color: #d9c79a;
+}
+
+.other-zone h2 {
+    margin: 0 0 12px 0;
+
+    padding-bottom: 10px;
+
+    color: #e2c56e;
+
+    font-size: 15px;
+
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #70572b;
+}
+
+.scores-matchs-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #8c6b30;
+    border-radius: 4px;
+}
+
+
+/* ================================================= */
+/* RESPONSIVE COMMUN                                 */
+/* ================================================= */
+
+@media (max-width: 1000px) {
+
+    .forum-layout {
+        grid-template-columns:
+            180px
+            minmax(0, 1fr)
+            180px;
+
+        width: 96%;
+
+        gap: 8px;
+    }
+
+    .search-box {
+        margin: 0 15px;
+    }
+
+    .search-box input {
+        width: 280px;
+    }
+}
+
+
+/* ================================================= */
+/* TABLETTE / PETIT ÉCRAN                            */
+/* ================================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .search-box {
+        order: 3;
+
+        width: 100%;
+
+        margin: 0;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .forum-layout {
+        grid-template-columns: 1fr;
+
+        width: 94%;
+    }
+
+    .discussion-zone,
+    .other-zone {
+        width: 100%;
+    }
+
+    .posts-column {
+        order: -1;
+    }
+}
+
+
+/* ================================================= */
+/* MOBILE                                            */
+/* ================================================= */
+
+@media (max-width: 500px) {
+
+    .banner {
+        min-height: 130px;
+
+        padding: 20px 10px;
+    }
+
+    .banner h1 {
+        font-size: 23px;
+    }
+
+    .banner p {
+        font-size: 11px;
+    }
+}
+
+/* Espaces de recherche de groupe */
+.discussion-zone a strong,
+.discussion-zone a span {
+    display: block;
+}
+.discussion-zone a strong {
+    color: #e2c56e;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+.discussion-zone a span {
+    font-size: 12px;
+    line-height: 1.5;
+}
+.discussion-zone a:focus-visible {
+    outline: 2px solid #e2c56e;
+    outline-offset: 2px;
+}
+/* ================================================= */
+/* icone profil                                      */
+/* ================================================= */
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    border: 4px solid #81652f;
+    background: #18252c;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Habillage League of Legends : navigation commune. */
+.navbar {
+    min-height: 58px;
+    padding: 5px 14px;
+    gap: 12px;
+    background: radial-gradient(ellipse at top, #15344388, transparent 65%), #03121b;
+    border: 1px solid #92713b;
+    box-shadow: inset 0 0 0 3px #061a25, inset 0 0 0 4px #5c4b2b, 0 2px 8px #000;
+}
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    font-size: 27px;
+    line-height: .83;
+    letter-spacing: -1.5px;
+    color: #e3b65f;
+    text-shadow: 1px 2px 0 #513012, 0 0 12px #000;
+    padding: 4px 8px;
+}
+.logo-of { font-size: 12px; letter-spacing: -1px; }
+.search-box { justify-content: flex-end; margin: 0; }
+.search-box input { width: min(100%, 240px); height: 34px; background: #020e16; border-color: #735934; font-family: Georgia, serif; }
+.nav-links { gap: 7px; }
+.nav-links a { background: linear-gradient(#112631, #05151e); border-color: #6b5835; color: #ecdfc1; }
+.navbar .profile-avatar { width: 36px; height: 36px; border: 2px solid #99743b; border-radius: 50%; overflow: hidden; }
+.navbar .profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.button-jouer { padding: 7px 30px; border: 3px double #d1a244; border-radius: 2px; background: linear-gradient(#a91b12, #650b08 55%, #320c08); color: #ffecc4; font-size: 20px; box-shadow: 0 0 0 2px #251c0c, inset 0 0 12px #e34a182b; }
+.button-jouer:hover { background: linear-gradient(#c72d18, #79130c); }
+a:focus-visible, button:focus-visible { outline: 2px solid #d8af5e; outline-offset: 3px; }
+.footer { padding: 10px 20px; text-align: center; color: #9a957f; font-size: 12px; }
+@media (max-width: 600px) {
+    .navbar { flex-wrap: wrap; gap: 8px; }
+    .navbar .search-box { order: 3; flex-basis: 100%; }
+    .search-box input { width: 100%; }
+    .button-jouer { padding: 7px 14px; font-size: 16px; }
+    .nav-links a { padding: 8px; font-size: 11px; }
+    .logo { font-size: 22px; }
+}

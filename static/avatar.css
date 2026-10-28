@@ -1,0 +1,473 @@
+/* ================================================= */
+/* GÉNÉRAL                                           */
+/* ================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #111b22;
+
+    color: #241b10;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* ================================================= */
+/* BARRE DU HAUT                                     */
+/* ================================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 8px 25px;
+
+    background: #07141b;
+
+    border-bottom: 2px solid #9a7836;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.6),
+        inset 0 -1px 0 #283e4a;
+
+    color: #e7d29a;
+}
+
+
+/* ================================================= */
+/* LOGO                                              */
+/* ================================================= */
+
+.logo {
+    color: #e4c46e;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 1px 2px #000;
+}
+
+.logo:hover {
+    color: #f2d98b;
+}
+
+
+/* ================================================= */
+/* BANNIÈRE                                          */
+/* ================================================= */
+
+.banner-Profil {
+    width: 100%;
+
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    background:
+        linear-gradient(
+            rgba(9, 21, 27, 0.25),
+            rgba(9, 21, 27, 0.45)
+        ),
+        #18313e;
+
+    border-bottom: 3px solid #8c6b30;
+
+    color: #e8d29a;
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.45),
+        0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.banner-Profil h1 {
+    margin: 0 0 8px 0;
+
+    color: #e6c66d;
+
+    font-size: 32px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        2px 2px 3px #000;
+}
+
+
+/* ================================================= */
+/* CARTE DU PROFIL                                   */
+/* ================================================= */
+
+.profile-card {
+    width: 90%;
+    max-width: 90%;
+
+    margin: 35px auto 50px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #d6bc80;
+
+    border: 1px solid #80612d;
+
+    box-shadow:
+        inset 0 0 0 2px #e0c990,
+        0 4px 12px rgba(0, 0, 0, 0.55);
+}
+
+
+/* ================================================= */
+/* AVATAR CLIQUABLE                                  */
+/* ================================================= */
+
+.profile-avatar-link {
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 auto 20px;
+
+    text-decoration: none;
+}
+
+.profile-avatar-link .profile-avatar {
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.profile-avatar-link:hover .profile-avatar {
+    transform: scale(1.05);
+
+    border-color: #c9a34e;
+
+    box-shadow:
+        0 0 12px rgba(201, 163, 78, 0.45),
+        0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ================================================= */
+/* NOM                                               */
+/* ================================================= */
+
+.profile-card h1 {
+    margin: 10px 0 25px;
+
+    color: #3a2a14;
+
+    font-size: 27px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 1px 0 #ead59d;
+}
+
+
+/* ================================================= */
+/* INFORMATIONS                                      */
+/* ================================================= */
+
+.profile-card p {
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 12px 15px;
+
+    text-align: left;
+
+    background: #c8aa69;
+
+    border: 1px solid #80612d;
+
+    color: #332515;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* ================================================= */
+/* BOUTONS                                           */
+/* ================================================= */
+
+.profile-card .button {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 11px 22px;
+
+    background: #18252c;
+
+    border: 1px solid #81652f;
+
+    color: #e3c978;
+
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.profile-card .button:hover {
+    background: #2a3941;
+
+    border-color: #c59d4d;
+
+    color: #fff0b5;
+}
+
+
+/* ================================================= */
+/* BOUTON PRINCIPAL                                  */
+/* ================================================= */
+
+.profile-card .button-primary {
+    background: #0b3045;
+
+    border: 2px solid #c9a34e;
+
+    color: #e8c66a;
+
+    font-weight: bold;
+}
+
+.profile-card .button-primary:hover {
+    background: #124b68;
+
+    color: white;
+}
+
+
+/* ================================================= */
+/* RESPONSIVE                                        */
+/* ================================================= */
+
+@media (max-width: 600px) {
+
+    .banner-Profil {
+        min-height: 140px;
+
+        padding: 25px 15px;
+    }
+
+    .banner-Profil h1 {
+        font-size: 25px;
+    }
+
+    .profile-card {
+        width: 94%;
+
+        margin-top: 25px;
+
+        padding: 22px 18px;
+    }
+
+    .profile-avatar {
+        width: 110px;
+        height: 110px;
+    }
+
+    .profile-card h1 {
+        font-size: 23px;
+    }
+}
+
+/* ================================================= */
+/* PAGE CHOIX DE L'AVATAR                            */
+/* ================================================= */
+
+.avatar-liste {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, 130px);
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin: 30px 0;
+}
+
+
+/* ================================================= */
+/* CHOIX D'UN AVATAR                                 */
+/* ================================================= */
+
+.avatar-choix {
+    width: 130px;
+    height: 130px;
+}
+
+
+/* Cache le bouton radio */
+
+.avatar-choix input {
+    display: none;
+}
+
+
+/* Image de l'avatar */
+
+.avatar-choix label {
+    display: block;
+
+    width: 110px;
+    height: 110px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 4px solid #81652f;
+
+    background: #18252c;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.5);
+
+    transition:
+        transform 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.avatar-choix img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* Effet quand on passe dessus */
+
+.avatar-choix label:hover {
+    transform: scale(1.05);
+
+    border-color: #c9a34e;
+
+    box-shadow:
+        0 0 12px rgba(201, 163, 78, 0.45),
+        0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Avatar sélectionné */
+
+.avatar-choix input:checked + label {
+    border-color: #e6c66d;
+
+    box-shadow:
+        0 0 0 3px #c9a34e,
+        0 0 15px rgba(201, 163, 78, 0.6);
+}
+
+
+/* ================================================= */
+/* PAGE AVATAR : CARTE PLUS LARGE                    */
+/* ================================================= */
+
+.profile-card.avatar-page {
+    width: 95%;
+    max-width: 1400px;
+}
+
+
+/* ================================================= */
+/* RESPONSIVE                                        */
+/* ================================================= */
+
+@media (max-width: 600px) {
+
+    .avatar-liste {
+        grid-template-columns: repeat(2, 110px);
+
+        gap: 20px;
+    }
+
+    .avatar-choix,
+    .avatar-choix label {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+.avatar-recherche {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+}
+
+.avatar-recherche input {
+    width: 100%;
+
+    padding: 12px 15px;
+
+    background: #18252c;
+
+    border: 1px solid #81652f;
+
+    color: #e8d29a;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+
+    outline: none;
+}
+
+.avatar-recherche input::placeholder {
+    color: #a99a7a;
+}
+
+.avatar-recherche input:focus {
+    border-color: #c9a34e;
+
+    box-shadow:
+        0 0 8px rgba(201, 163, 78, 0.35);
+}

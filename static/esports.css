@@ -1,0 +1,21 @@
+.forum-home .esports-panel { padding: 18px 12px; min-width: 0; }
+.esports-eyebrow { margin: 0 0 8px; color: #aeb8b7; font: 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+.esports-panel h2 { color: #efc66b; font-size: 15px; }
+.esports-filters { display: flex; flex-wrap: wrap; gap: 5px; }
+.esports-filters button, #esports-refresh { padding: 7px 8px; border: 1px solid #70572b; background: #101f29; color: #d9c79a; font: 11px Arial, sans-serif; cursor: pointer; }
+.esports-filters button[aria-pressed="true"] { background: #d5b66d; color: #08161d; border-color: #efc66b; }
+.esports-filters button:hover, #esports-refresh:hover { border-color: #efc66b; }
+#esports-status, .esports-empty, .esports-source, .esports-panel noscript { color: #aeb8b7; font: 11px/1.6 Arial, sans-serif; }
+#esports-status { margin: 12px 0; }
+.esports-match { padding: 12px 0; border-top: 1px solid #43504a; }
+.esports-league { margin: 0 0 5px; color: #efc66b; font-size: 12px; overflow-wrap: anywhere; }
+.esports-date { display: block; color: #aeb8b7; font: 11px Arial, sans-serif; }
+.esports-state { display: inline-block; margin: 6px 0; color: #aeb8b7; font: 10px Arial, sans-serif; text-transform: uppercase; }
+.esports-state.is-running { color: #7ce1bd; }
+.esports-team { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 6px 0; color: #e9e4d6; font: 12px Arial, sans-serif; }
+.esports-team-name { overflow-wrap: anywhere; }
+.esports-score { color: #efc66b; font-size: 15px; font-variant-numeric: tabular-nums; }
+#esports-refresh { margin-top: 10px; width: 100%; }
+#esports-refresh:disabled { opacity: .6; cursor: wait; }
+.esports-source { margin-bottom: 0; }
+.esports-source a { color: #d5b66d; }

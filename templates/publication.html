@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Publication - Forum</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/publication.css">
+</head>
+
+<body>
+
+    <!-- ============================== -->
+    <!-- BARRE DU HAUT                  -->
+    <!-- ============================== -->
+
+    {{template "header" .}}
+
+
+    <!-- ============================== -->
+    <!-- BANNIÈRE                       -->
+    <!-- ============================== -->
+
+    <section class="banner">
+
+        <h1>Publication</h1>
+
+        <p>
+            Consultez la publication et participez à la discussion.
+        </p>
+
+    </section>
+
+
+    <!-- ============================== -->
+    <!-- CONTENU PRINCIPAL              -->
+    <!-- ============================== -->
+
+    <main class="forum-layout">
+
+
+        <!-- ============================== -->
+        <!-- ZONE DISCUSSION                 -->
+        <!-- ============================== -->
+
+        {{template "espaces" .}}
+
+
+        <!-- ============================== -->
+        <!-- COLONNE PRINCIPALE              -->
+        <!-- ============================== -->
+
+        <section class="posts-column">
+
+
+            <!-- ============================== -->
+            <!-- RETOUR                          -->
+            <!-- ============================== -->
+
+            <a
+                href="/"
+                class="publication-back">
+
+                ← Retour aux publications
+
+            </a>
+
+
+            <!-- ============================== -->
+            <!-- PUBLICATION                     -->
+            <!-- ============================== -->
+
+            <article class="publication-card">
+
+
+                <!-- EN-TÊTE -->
+
+                <div class="publication-header">
+
+                    <div class="post-user">
+
+                        <div class="avatar">
+                            <img
+                                src="/static/avatar/{{.Publication.Avatar}}.png"
+                                alt="Avatar"
+                            >
+                        </div>
+
+                        <div>
+
+                            <h1 class="publication-title">
+                                {{.Publication.Titre}}
+                            </h1>
+
+                            <p class="publication-meta">
+
+                                {{.Publication.NomClient}}
+                                ·
+                                {{.Publication.Date}}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ============================== -->
+                <!-- CONTENU                         -->
+                <!-- ============================== -->
+
+                <div class="publication-body">
+
+                    <p>
+                        {{.Publication.Contenu}}
+                    </p>
+
+                </div>
+
+
+                <!-- ============================== -->
+                <!-- ACTIONS                         -->
+                <!-- ============================== -->
+
+                    <div class="publication-actions">
+
+                    <!-- Les boutons envoient le vote vers /vote sans JavaScript. -->
+                    <form action="/vote" method="post">
+                        <input type="hidden" name="publication_id" value="{{.Publication.ID}}">
+                        <input type="hidden" name="valeur" value="1">
+                        <button type="submit" class="publication-action">
+                            <!-- Coeur plein : le visiteur connecté a déjà aimé cette publication. -->
+                            {{if eq .Publication.VoteUtilisateur 1}}♥{{else}}♡{{end}}
+                            {{.Publication.NombreLikes}} J'aime
+                        </button>
+                    </form>
+
+                    <form action="/vote" method="post">
+                        <input type="hidden" name="publication_id" value="{{.Publication.ID}}">
+                        <input type="hidden" name="valeur" value="-1">
+                        <button type="submit" class="publication-action">
+                            <!-- Cette condition affiche l'état actif du dislike. -->
+                            {{if eq .Publication.VoteUtilisateur -1}}👎{{else}}👎🏻{{end}}
+                            {{.Publication.NombreDislikes}} Je n'aime pas
+                        </button>
+                    </form>
+
+                </div>
+
+            </article>
+
+
+            <!-- ============================== -->
+            <!-- COMMENTAIRES                    -->
+            <!-- ============================== -->
+
+            <section class="comments" id="commentaires">
+
+                <h2>
+                    Commentaires
+                </h2>
+
+
+                <!-- ============================== -->
+                <!-- LISTE DES COMMENTAIRES         -->
+                <!-- ============================== -->
+
+                {{range .Commentaires}}
+
+                <div class="comment">
+
+
+                    <!-- AVATAR -->
+
+                    <div class="profile-avatar">
+                        <img
+                            src="/static/avatar/{{.Avatar}}.png"
+                            alt="Avatar"
+                        >
+                    </div>
+
+
+                    <!-- CONTENU -->
+
+                    <div class="comment-body">
+
+                        <strong>
+                            {{.NomClient}}
+                        </strong>
+
+                        <p>
+                            {{.Contenu}}
+                        </p>
+
+                        <span class="comment-date">
+                            {{.Date}}
+                        </span>
+
+                    </div>
+
+                </div>
+
+                {{else}}
+
+                <p class="no-comments">
+                    Aucun commentaire pour le moment.
+                </p>
+
+                {{end}}
+
+
+                <!-- ============================== -->
+                <!-- FORMULAIRE                      -->
+                <!-- ============================== -->
+                 {{if .Connecte}}
+                <form
+                    class="comment-form"
+                    action="/commentaire"
+                    method="POST">
+
+
+                    <input
+                        type="hidden"
+                        name="publication_id"
+                        value={{.Publication.ID}}>
+
+                    <textarea
+                        name="contenu"
+                        placeholder="Écrire un commentaire..."
+                        rows="3"
+                        required></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="button button-primary">
+
+                        Commenter
+
+                    </button>
+
+                </form>
+                {{else}}
+                Rien
+                {{end}}
+            </section>
+
+        </section>
+
+
+        <!-- ============================== -->
+        <!-- TROISIÈME ZONE                 -->
+        <!-- ============================== -->
+
+        <aside class="other-zone">
+
+            <img class="scores-matchs-image" src="/scores-et-matchs/matchscore.png" alt="Scores et matchs à venir">
+
+        </aside>
+
+    </main>
+
+
+    <!-- ============================== -->
+    <!-- FOOTER                         -->
+    <!-- ============================== -->
+
+    {{template "footer" .}}
+
+</body>
+
+</html>
